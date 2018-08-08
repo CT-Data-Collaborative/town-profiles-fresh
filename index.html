@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Connecticut Town Profiles</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css" rel="stylesheet">
+
+  <script src="script.js"></script>
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="fullpage">
+
+    <div class="section">
+      <div class="slide" id="home">
+
+        <h1>Connecticut Town Profiles</h1>
+        <h2>
+          Two-page reports of demographic and economic information for Connecticut's towns
+        </h2>
+
+        <div class="logos">
+          <a href="http://www.ctdata.org" target="_blank"><img src="img/ctdata.jpg"></a>
+          <span> + </span>
+          <a href="https://www.cerc.com" target="_blank"><img src="img/cerc.jpg"></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="slide" id="map">
+
+        <div id="my-map-sidebar">
+          <div style="margin-bottom: 40px; font-size: 1.2em;">
+            CERC Town Profile reports are available for 2016&ndash;2018. Click on a town to download the PDF for
+
+            <select name="year">
+              <option value="2018" selected>2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+            </select> .
+
+          </div>
+
+          <div class="my-map-column" id="column1"></div>
+          <div class="my-map-column" id="column2"></div>
+          <div class="my-map-column" id="column3"></div>
+          <div class="my-map-column" id="column4"></div>
+        </div>
+
+        <div id="my-map"></div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="slide" id="about">
+        <div>
+          <h2>About</h2>
+
+          <p>
+            The Connecticut Town Profiles is a project of the
+            <a href="http://www.ctdata.org">Connecticut Data Collaborative</a> in partnership with the
+            <a href="https://www.cerc.com">Connecticut Economic Resource Center, Inc</a>.
+          </p>
+
+          <p>
+            The Connecticut Town Profiles are two-page reports of demographic and
+            economic information for Connecticut's municipalities, regions, and the state as a whole.
+            They contain information about population, major employers, education, fiscal information,
+            labor force, housing and quality of life.
+          </p>
+          <p>
+            These town profiles are the property of the Connecticut Economic Resource Center, Inc.
+            They can be used free of charge by external organizations, as long as CERC is given recognition.
+          </p>
+
+
+            <a href="http://www.ctdata.org" target="_blank"><img src="img/ctdata.jpg"></a>
+
+            <a href="https://www.cerc.com" target="_blank"><img src="img/cerc.jpg"></a>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
