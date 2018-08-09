@@ -63,15 +63,16 @@ h3 {
 
 #my-map-sidebar {
   width: 320px;
-  height: 90vh;
+  height: calc(100vh - 50px);
   float: left;
   color: white;
   margin-left: 80px;
-  margin-top: 10vh;
+  margin-top: 50px;
 }
 
 .my-map-column {
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 14px;
   width: 80px;
   float: left;
 }
@@ -84,6 +85,11 @@ h3 {
 
 .leaflet-container {
   background-color:rgba(255,0,0,0.0);
+}
+
+#map a, #map a:hover, #map a:visited {
+  color: orange;
+  text-decoration: none;
 }
 
 #fp-nav ul li a span {

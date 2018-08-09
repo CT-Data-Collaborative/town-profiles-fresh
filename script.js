@@ -29,6 +29,7 @@ $(document).ready(function() {
 
   $(window).resize(function() {
     centerMap();
+    populateTowns();
   });
 
   function style(feature) {
@@ -69,6 +70,29 @@ $(document).ready(function() {
     TOWNS.push(layer.feature.properties.Town);
   }
 
+  function populateTowns() {
+    $('.my-map-column').html('');
+
+    /*
+    var colHeight = $('#map').height() - 300;
+    var colNumber = Math.ceil(169 * 14 / colHeight);
+    var townsPerColumn = Math.ceil(169 / colNumber);
+
+    if (colNumber > 8) {
+      townsPerColumn = 22;
+    } */
+
+    var townsPerColumn = 43;
+
+    for (var i = 0; i < TOWNS.length; i++) {
+      $('#column' + (parseInt(i / townsPerColumn) + 1) ).append('<span class="clickable">' + TOWNS[i] + '</span><br>');
+    }
+
+    $('.clickable').click(function() {
+      openPDF( $(this)[0].innerText );
+    });
+  }
+
   function openPDF(town) {
     var year = $('select[name="year"]').val();
     var townSlug = town.toLowerCase().replace(' ', '-');
@@ -82,14 +106,7 @@ $(document).ready(function() {
     }).addTo(map);
 
     TOWNS = TOWNS.sort();
-
-    for (var i = 0; i < TOWNS.length; i++) {
-      $('#column' + (parseInt(i / 43) + 1) ).append('<span class="clickable">' + TOWNS[i] + '</span><br>');
-    }
-
-    $('.clickable').click(function() {
-      openPDF( $(this)[0].innerText );
-    });
+    populateTowns();
 
     centerMap();
   });
