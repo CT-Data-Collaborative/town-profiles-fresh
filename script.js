@@ -7,6 +7,7 @@ $(document).ready(function() {
   });
 
   var TOWNS = [];
+  var LAYERS = {};
 
   var map = L.map('my-map', {
     zoomControl: false,
@@ -33,11 +34,11 @@ $(document).ready(function() {
 
   function style(feature) {
     return {
-      fillColor: 'rgba(255,255,255,0.2)',
+      fillColor: 'rgba(255,255,255,0.1)',
       weight: 1,
       opacity: 0.8,
       color: 'white',
-      fillOpacity: 0.8
+      fillOpacity: 1,
     };
   }
 
@@ -45,13 +46,17 @@ $(document).ready(function() {
   function highlightFeature(e) {
     resetHighlight(e);
     var layer = e.target;
+    var town = layer.feature.properties.Town;
     layer.setStyle( {fillColor: 'rgba(255,255,255,0.9)'} );
-    layer.bindTooltip(layer.feature.properties.Town, {direction: 'top'}).openTooltip();
+    layer.bindTooltip(town, {direction: 'top'}).openTooltip();
+
+    $('#my-map-list li:contains(' + town + ')').addClass('highlighted');
   }
 
   // This resets the highlight after hover moves away
   function resetHighlight(e) {
     geoJsonLayer.setStyle(style);
+    $('#my-map-list li.highlighted').removeClass('highlighted');
   }
 
   function clickFeature(e) {
@@ -60,13 +65,17 @@ $(document).ready(function() {
 
   // This instructs highlight and reset functions on hover movement
   function onEachFeature(feature, layer) {
+
     layer.on({
       mouseover: highlightFeature,
       mouseout: resetHighlight,
       click: clickFeature,
     });
 
-    TOWNS.push(layer.feature.properties.Town);
+    var town = layer.feature.properties.Town;
+
+    TOWNS.push(town);
+    LAYERS[town] = layer;
   }
 
   function populateTowns() {
@@ -76,6 +85,16 @@ $(document).ready(function() {
 
     $('#my-map-list li').click(function() {
       openPDF( $(this)[0].innerText );
+    });
+
+    $('#my-map-list li').mouseover(function() {
+      var town = $(this)[0].innerText;
+      var layer = LAYERS[town];
+      layer.fireEvent('mouseover');
+    }).mouseleave(function() {
+      var town = $(this)[0].innerText;
+      var layer = LAYERS[town];
+      layer.fireEvent('mouseout');
     });
   }
 

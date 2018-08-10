@@ -70,7 +70,7 @@ h3 {
 
 #my-map-list {
   font-size: 12px;
-  line-height: 13px;
+  line-height: 14px;
   width: 400px;
   height: calc(100vh - 150px);
   float: left;
@@ -136,4 +136,8 @@ h3 {
   font-size: 0.7em;
   opacity: 0.8;
   margin-top: 0;
+}
+
+.highlighted {
+  opacity: 1 !important;
 }
