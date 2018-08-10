@@ -29,7 +29,6 @@ $(document).ready(function() {
 
   $(window).resize(function() {
     centerMap();
-    populateTowns();
   });
 
   function style(feature) {
@@ -71,24 +70,11 @@ $(document).ready(function() {
   }
 
   function populateTowns() {
-    $('.my-map-column').html('');
-
-    /*
-    var colHeight = $('#map').height() - 300;
-    var colNumber = Math.ceil(169 * 14 / colHeight);
-    var townsPerColumn = Math.ceil(169 / colNumber);
-
-    if (colNumber > 8) {
-      townsPerColumn = 22;
-    } */
-
-    var townsPerColumn = 43;
-
     for (var i = 0; i < TOWNS.length; i++) {
-      $('#column' + (parseInt(i / townsPerColumn) + 1) ).append('<span class="clickable">' + TOWNS[i] + '</span><br>');
+      $('#my-map-list').append('<li>' + TOWNS[i] + '</li>');
     }
 
-    $('.clickable').click(function() {
+    $('#my-map-list li').click(function() {
       openPDF( $(this)[0].innerText );
     });
   }
@@ -107,7 +93,6 @@ $(document).ready(function() {
 
     TOWNS = TOWNS.sort();
     populateTowns();
-
     centerMap();
   });
 

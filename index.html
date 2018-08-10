@@ -41,37 +41,30 @@
     <div class="section">
       <div class="slide" id="map">
 
-        <div id="my-map-sidebar">
-          <div style="margin-bottom: 20px; font-size: 1.1em; line-height: 1.1em;">
+          <div id="my-map-header">
 
-            <a href="http://data.ctdata.org/data_by_topic" target="_blank">Click here</a>
-            to compare towns and view more years in our interactive datasets.
+            <p style="margin-bottom:5px;">
+              Click on a town to download its profile in PDF for
 
-            <br><br>
+              <select name="year">
+                <option value="2018" selected>2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+              </select>
+            </p>
 
-            CERC Town Profile reports are available for 2016&ndash;2018. Click on a town to download the PDF for
-
-            <select name="year">
-              <option value="2018" selected>2018</option>
-              <option value="2017">2017</option>
-              <option value="2016">2016</option>
-            </select> .
+            <p class="subtitle">
+              Connecticut Town Profile reports are available for 2016&ndash;2018.
+              <a href="http://data.ctdata.org/data_by_topic" target="_blank">Click here</a>
+              to compare towns and view more years in our interactive datasets.
+            </p>
 
           </div>
 
-          <div class="my-map-column" id="column1"></div>
-          <div class="my-map-column" id="column2"></div>
-          <div class="my-map-column" id="column3"></div>
-          <div class="my-map-column" id="column4"></div>
 
-          <!--
-          <div class="my-map-column" id="column5"></div>
-          <div class="my-map-column" id="column6"></div>
-          <div class="my-map-column" id="column7"></div>
-          <div class="my-map-column" id="column8"></div> -->
-        </div>
+          <ul id="my-map-list"></ul>
 
-        <div id="my-map"></div>
+          <div id="my-map"></div>
 
       </div>
     </div>
