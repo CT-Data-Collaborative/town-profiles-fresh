@@ -104,6 +104,7 @@ h3 {
 
 #my-map-list li {
   opacity: 0.6;
+  margin-right: 2px;
 }
 
 #my-map-list li:hover {
