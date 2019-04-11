@@ -5,7 +5,7 @@ body {
 }
 
 #home {
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hartford-cover.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hartford-cover.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -27,7 +27,7 @@ body {
 .logos a, .logos a:hover, .logos a:visited {
   opacity: 0.8;
   background-color: white;
-  padding: 10px;
+  padding: 8px;
   padding-top: 0;
 }
 
@@ -69,22 +69,29 @@ h3 {
 }
 
 #my-map-list {
-  font-size: 12px;
-  line-height: 14px;
-  width: 400px;
+  font-size: 1.3em;
+  line-height: 1.4em;
+  width: 100vw;
+  max-width: 300px;
   height: calc(100vh - 150px);
+  list-style: none;
   float: left;
+  overflow-y: scroll;
+  text-align: center;
+  padding-left: 0;
+  border-right: 6px solid yellow;
+  /*float: left;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 40px;
+  padding-left: 40px; */
 }
 
 #my-map {
-  width: calc(100vw - 440px);
+  width: calc(100vw - 340px);
   height: calc(100vh - 150px);
   float: left;
 }

@@ -4,6 +4,7 @@ $(document).ready(function() {
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
     navigation: true,
     touchSensitivity: 200,
+    normalScrollElements: '.scrollable'
   });
 
   var TOWNS = [];
@@ -27,10 +28,6 @@ $(document).ready(function() {
   function centerMap() {
     map.fitBounds(geoJsonLayer.getBounds());
   }
-
-  $(window).resize(function() {
-    centerMap();
-  });
 
   function style(feature) {
     return {
@@ -104,7 +101,7 @@ $(document).ready(function() {
     window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/' + year + '/' + townSlug + '-' + year + '.pdf');
   }
 
-  $.getJSON('ct.geojson', function(geojson) {
+  $.getJSON('static/ct.geojson', function(geojson) {
     geoJsonLayer = L.geoJson(geojson, {
       style: style,
       onEachFeature: onEachFeature
@@ -118,6 +115,11 @@ $(document).ready(function() {
   $('#home').click(function() {
     $('#fp-nav a')[1].click();
   });
+
+  $(window).resize(function() {
+    centerMap();
+  });
+
 
 
 });
