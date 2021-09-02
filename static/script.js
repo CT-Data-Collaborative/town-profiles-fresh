@@ -98,7 +98,13 @@ $(document).ready(function() {
   function openPDF(town) {
     var year = $('select[name="year"]').val();
     var townSlug = town.toLowerCase().replace(' ', '-');
-    window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/' + year + '/' + townSlug + '-' + year + '.pdf');
+
+    if (year === '2021') {
+      window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/' + year + '/' + town.replace(' ', '-') + '.pdf');
+    }
+    else {
+      window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/' + year + '/' + townSlug + '-' + year + '.pdf');
+    }
   }
 
   $.getJSON('static/ct.geojson', function(geojson) {
