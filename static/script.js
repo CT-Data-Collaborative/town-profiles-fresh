@@ -99,7 +99,10 @@ $(document).ready(function() {
     var year = $('select[name="year"]').val();
     var townSlug = town.toLowerCase().replace(' ', '-');
 
-    if (year === '2023' || year === '2021' || year === '2024' || year === '2025') {
+    if (year === '2026') {
+      window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/latest/' + town.replace(' ', '-') + '.pdf');
+    }
+    else if (year === '2023' || year === '2021' || year === '2024' || year === '2025') {
       window.open('https://s3-us-west-2.amazonaws.com/cerc-pdfs/' + year + '/' + town.replace(' ', '-') + '.pdf');
     }
     else {
